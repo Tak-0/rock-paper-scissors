@@ -44,60 +44,94 @@ function getHumanChoice() {
 
 
 
-
 function playRound(cChoice, hChoice) {
-    
+ 
     if (hChoice == "rock" && cChoice == "paper") {
         computerScore+=1
+        
         console.log(`Human:${humanScore} Computer:${computerScore}`)
+        console.log(`-----------------`)
     }
 
     else if (hChoice == "rock" && cChoice == "scissors") {
         humanScore+=1
+       
         console.log(`Human:${humanScore} Computer:${computerScore}`)
+        console.log(`-----------------`)
     }
 
     else if (hChoice == "paper" && cChoice == "scissors") {
         computerScore+=1
+        
         console.log(`Human:${humanScore} Computer:${computerScore}`)
+        console.log(`-----------------`)
     }
 
     else if (hChoice == "paper" && cChoice == "rock") {
         humanScore+=1
+       
         console.log(`Human:${humanScore} Computer:${computerScore}`)
+        console.log(`-----------------`)
     }
 
     else if (hChoice == "scissors" && cChoice == "rock") {
         computerScore+=1
+        
         console.log(`Human:${humanScore} Computer:${computerScore}`)
+        console.log(`-----------------`)
     }
 
     else if (hChoice == "scissors" && cChoice == "paper") {
         humanScore+=1
+    
         console.log(`Human:${humanScore} Computer:${computerScore}`)
+        console.log(`-----------------`)
     }
 
     else {
-        //console.log(`Try again`)
         console.log(`Human:${humanScore}Computer:${computerScore}`) 
+        console.log(`-----------------`)
         
     }
-    
+
 
 }
+
+
+
+
+let humanScore = 0
+let computerScore = 0
 
 function playGame() {
     humanScore = 0
     computerScore = 0
-    playRound(cChoice, hChoice);
-    playRound(cChoice, hChoice);
+    
+    for (let i=0; i<3; i++){
+        const cChoice = getComputerChoice();
+        const hChoice = getHumanChoice();
+       playRound(cChoice, hChoice);
+    
+
+
+    }
+
+    if (humanScore > computerScore) {
+        console.log(`!!!Human wins!!!`)
+    }
+
+    else if (computerScore > humanScore) {
+        console.log(`!!!Computer wins!!!`)
+    }
  
+    else {
+        console.log(`!!!Draw!!!`)
+    }
+
 } 
 
 
 
-const cChoice = getComputerChoice();
-const hChoice = getHumanChoice();
 playGame()
 
 
